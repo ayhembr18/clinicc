@@ -61,7 +61,7 @@ router.put('/:id', auth, async (req, res) => {
 
       try {
         await transporter.sendMail({
-          from: `"ClinicUrgence" <${process.env.EMAIL_USER}>`,
+          from: `"ClinicUrgence" <${process.env.EMAIL_FROM}>`,
           to: appointment.email,
           subject: isConfirmed
             ? ` Rendez-vous confirmé — ${appointment.ticketNumber}`
