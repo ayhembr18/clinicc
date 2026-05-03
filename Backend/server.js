@@ -12,7 +12,9 @@ app.use(express.json());
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
+app.use('/api/doctor-auth', require('./routes/doctor-auth'));
 app.use('/api/appointments', require('./routes/appointments'));
+app.use('/api/doctor-appointments', require('./routes/doctor-appointments'));
 app.use('/api/contacts', require('./routes/contacts'));
 app.use('/api/doctors', require('./routes/doctors'));
 
@@ -26,7 +28,6 @@ mongoose.connect(MONGO_URI)
   })
   .catch(err => {
     console.error('MongoDB connection error:', err);
-    // Start server anyway for demo purposes
     app.listen(PORT, () => console.log(`Server running on port ${PORT} (no DB)`));
   });
 
